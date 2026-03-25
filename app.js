@@ -4,7 +4,14 @@ import userRoutes from "./routes/userRoutes.js";
 const app = express();
 
 app.use(express.json());
-app.use("/", userRoutes);
+
+// routes
+app.use("/api", userRoutes);
+
+// root route
+app.get("/", (req, res) => {
+  res.send("Welcome to the User Management API");
+});
 
 const PORT = 5000;
 
